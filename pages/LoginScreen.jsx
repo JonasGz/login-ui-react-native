@@ -1,7 +1,11 @@
-import { TouchableOpacity, Text, TextInput, View } from 'react-native';
+import {TouchableOpacity, Text, TextInput, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function LoginScreen() {
+const changePage = ({navigation}, params) => {
+  navigation.navigate('Home', params);
+}
+
+export default function LoginScreen({navigation}) {
   return (
     <View className='w-full flex flex-col h-full bg-[#D4D7E7] items-center justify-center p-10'>
       <View className='flex justify-center items-center gap-6'>
@@ -16,7 +20,7 @@ export default function LoginScreen() {
       </View>
       
       <View className='flex flex-col gap-5 w-full'>
-        <TouchableOpacity className='bg-black w-full rounded-lg p-6 flex justify-center items-center'>
+        <TouchableOpacity onPress={() => changePage({navigation}, {name: 'JonasChagas'})} className='bg-black w-full rounded-lg p-6 flex justify-center items-center'>
           <Text className='text-white text-base font-medium'>Sign In</Text> 
         </TouchableOpacity>
       </View>
